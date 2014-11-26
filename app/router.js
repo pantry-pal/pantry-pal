@@ -19,6 +19,11 @@ Router.map(function() {
   this.route('team', { path: '/team' });
   this.route('stack');
   this.route('erd');
+  this.resource('users', function () {
+    this.resource('user', {
+      path: '/:user_id',
+    });
+  });
 });
 
 export default Router;

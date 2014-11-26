@@ -1,0 +1,10 @@
+<h2>Users</h2>
+<ul>
+  {{#each}}
+    <li>
+      {{#link-to 'user' this}}
+        {{fname}} {{lname}}
+      {{/link-to}}
+    </li>
+  {{/each}}
+</ul>

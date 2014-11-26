@@ -5,6 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'pantry-pal',
     environment: environment,
     baseURL: '/',
+    apiURL: 'http://pantry-pal-api.herokuapp.com/v1',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
