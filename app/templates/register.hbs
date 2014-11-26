@@ -1,0 +1,31 @@
+<h2>Register</h2>
+
+<form class="text-center">
+  <div class="row login-box">
+    <div>
+      <p>Fields with * are requried.</p>
+      <form class="text-center" >
+      <div {{bind-attr class=":form-group errors.email:has-error" }}>
+          {{#if errors.email}}
+            <label class="control-label" >{{errors.email}}</label>
+          {{/if}}
+          {{input valueBinding="formModel.email" placeholder='* Email' class='form-control login-input' }}
+        </div>
+        <div {{bind-attr class=":form-group errors.password:has-error" }}>
+          {{#if errors.password}}
+            <label class="control-label" >{{errors.password}}</label>
+          {{/if}}
+          {{input valueBinding="formModel.password" placeholder='* Password' type='password' class='form-control login-input' }}
+          {{input valueBinding="checkPassword" placeholder='* Re-Enter Password' type='password' class='form-control login-input' }}
+        </div>
+        <div class="form-group">
+          {{input valueBinding="formModel.fname" placeholder='First Name' class='form-control login-input'}}
+        </div>
+        <div class="form-group">
+          {{input valueBinding="formModel.lname" placeholder='Last Name' class='form-control login-input'}}
+        </div>
+
+        <button {{action 'register'}} class="btn btn-info btn-block login-input">Register</button>
+      </form>
+    </div>
+  </div>

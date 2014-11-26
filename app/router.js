@@ -24,6 +24,7 @@ Router.map(function() {
       path: '/:user_id',
     });
   });
+  this.route('register');
 });
 
 export default Router;
