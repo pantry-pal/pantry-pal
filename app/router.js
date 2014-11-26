@@ -26,6 +26,11 @@ Router.map(function() {
   });
   this.route('register');
   this.route('login');
+  this.resource('ingredients', function() {
+    this.resource('ingredient', {
+      path: '/:ingredient_id'
+    });
+  });
 });
 
 export default Router;
