@@ -3,9 +3,22 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'pantry-pal',
+    'simple-auth-token': {
+      //serverTokenEndpoint: '/api-token-auth/',
+      identificationField: 'email',
+      tokenPropertyName: 'password'
+      //authorizationPrefix: 'Bearer ',
+      //authorizationHeaderName: 'Authorization'
+    },
+    'simple-auth': {
+      store: 'simple-auth-session-store:local-storage',
+      authenticator: 'authenticator:pantry-pal',
+      authorizer: 'simple-auth-authorizer:token',
+      tokenAttributeName: 'token'
+    },
     environment: environment,
     baseURL: '/',
-    apiURL: 'http://pantry-pal-api.herokuapp.com/v1',
+    apiURL: 'https://pantry-pal-api.herokuapp.com/v1',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -18,6 +31,10 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     }
+  };
+
+  ENV['simple-auth'] = {
+    authorizer: 'simple-auth-authorizer:oauth2-bearer'
   };
 
   if (environment === 'development') {

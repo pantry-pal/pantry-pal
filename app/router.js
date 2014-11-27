@@ -31,6 +31,8 @@ Router.map(function() {
       path: '/:ingredient_id'
     });
   });
+  this.route('sql');
+  this.route('xml');
 });
 
 export default Router;

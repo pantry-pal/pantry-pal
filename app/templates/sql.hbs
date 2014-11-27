@@ -1,0 +1,129 @@
+<h2>SQL</h2>
+
+<pre><code class="sql">
+  -- Created by Vertabelo (http://vertabelo.com)
+-- Script type: create
+-- Scope: [tables, references, sequences, views, procedures]
+-- Generated at Wed Nov 26 23:45:33 UTC 2014
+
+
+
+
+-- tables
+-- Table: ingredient
+CREATE TABLE ingredient (
+    id int    NOT NULL  AUTO_INCREMENT,
+    name varchar(45)    NOT NULL ,
+    CONSTRAINT ingredient_pk PRIMARY KEY (id)
+);
+
+-- Table: inventory
+CREATE TABLE inventory (
+    id int    NOT NULL  AUTO_INCREMENT,
+    user int    NOT NULL ,
+    category int    NOT NULL ,
+    name varchar(45)    NOT NULL ,
+    CONSTRAINT inventory_pk PRIMARY KEY (id)
+);
+
+-- Table: inventory_ingredient
+-- inventory to ingredient relation table: inventory contains ingredients
+
+CREATE TABLE inventory_ingredient (
+    id int    NOT NULL  AUTO_INCREMENT,
+    inventory int    NOT NULL ,
+    ingredient int    NOT NULL ,
+    amount varchar(45)    NOT NULL ,
+    CONSTRAINT inventory_ingredient_pk PRIMARY KEY (id)
+);
+
+-- Table: recipe
+CREATE TABLE recipe (
+    id int    NOT NULL  AUTO_INCREMENT,
+    user int    NOT NULL ,
+    name varchar(45)    NOT NULL ,
+    description text    NOT NULL ,
+    directions text    NOT NULL ,
+    CONSTRAINT recipe_pk PRIMARY KEY (id)
+);
+
+-- Table: recipe_ingredient
+-- recipe to ingredient relation table: recipe contains ingredients
+
+CREATE TABLE recipe_ingredient (
+    id int    NOT NULL  AUTO_INCREMENT,
+    recipe int    NOT NULL ,
+    ingredient int    NOT NULL ,
+    amount varchar(45)    NOT NULL ,
+    CONSTRAINT recipe_ingredient_pk PRIMARY KEY (id)
+);
+
+-- Table: user
+CREATE TABLE user (
+    id int    NOT NULL  AUTO_INCREMENT,
+    email varchar(45)    NOT NULL ,
+    password varchar(45)    NOT NULL ,
+    fname varchar(45)    NULL ,
+    lname varchar(45)    NULL ,
+    groups text    NOT NULL  COMMENT 'Linux-style rbac',
+    CONSTRAINT user_pk PRIMARY KEY (id)
+);
+
+
+
+
+
+-- foreign keys
+-- Reference:  Inventory_User (table: inventory)
+
+
+ALTER TABLE inventory ADD CONSTRAINT Inventory_User FOREIGN KEY Inventory_User (user)
+    REFERENCES user (id);
+-- Reference:  Item_recipeitems (table: recipe_ingredient)
+
+
+ALTER TABLE recipe_ingredient ADD CONSTRAINT Item_recipeitems FOREIGN KEY Item_recipeitems (ingredient)
+    REFERENCES ingredient (id);
+-- Reference:  ingredient_inventory_ingredient (table: inventory_ingredient)
+
+
+ALTER TABLE inventory_ingredient ADD CONSTRAINT ingredient_inventory_ingredient FOREIGN KEY ingredient_inventory_ingredient (ingredient)
+    REFERENCES ingredient (id);
+-- Reference:  inventory_ingredient_inventory (table: inventory_ingredient)
+
+
+ALTER TABLE inventory_ingredient ADD CONSTRAINT inventory_ingredient_inventory FOREIGN KEY inventory_ingredient_inventory (inventory)
+    REFERENCES inventory (id);
+-- Reference:  recipe_user (table: recipe)
+
+
+ALTER TABLE recipe ADD CONSTRAINT recipe_user FOREIGN KEY recipe_user (user)
+    REFERENCES user (id);
+-- Reference:  recipeitems_Recipes (table: recipe_ingredient)
+
+
+ALTER TABLE recipe_ingredient ADD CONSTRAINT recipeitems_Recipes FOREIGN KEY recipeitems_Recipes (recipe)
+    REFERENCES recipe (id);
+
+
+
+-- End of file.
+
+</code></pre>
+<script>
+hljs.initHighlightingOnLoad();
+$(document).ready(function() {
+  $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+});
+$('pre code').each(function(i, block) {
+  hljs.highlightBlock(block);
+});
+
+$(document).ready(function() {
+  $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+});
+</script>

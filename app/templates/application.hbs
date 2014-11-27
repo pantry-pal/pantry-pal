@@ -1,10 +1,6 @@
-<h1 id='title'>Pantry Pal</h1>
+<h1 id='title'>{{#link-to 'index'}}Pantry Pal{{/link-to}}</h1>
 
-{{#link-to 'index'}}Home{{/link-to}} | {{#link-to 'stack'}}The Stack{{/link-to}} | {{#link-to 'team'}}The Team{{/link-to}} |
-{{#link-to 'users.index'}}User List{{/link-to}} <br>
-{{#link-to 'register'}}Register{{/link-to}} | {{#link-to 'login'}}Login{{/link-to}}<br>
-{{#link-to 'ingredients'}}Ingredients{{/link-to}}<br>
-{{#link-to 'erd'}}Entity-relationship Diagram{{/link-to}}<br>
+{{#link-to 'login'}}Login{{/link-to}} | {{#link-to 'ingredients'}}Ingredients{{/link-to}}<br>
 
 {{outlet}}<br>
 
@@ -14,10 +10,10 @@
 {{#link-to 'users.index'}}User List{{/link-to}} <br>
 {{#link-to 'register'}}Register{{/link-to}} | {{#link-to 'login'}}Login{{/link-to}}<br>
 {{#link-to 'ingredients'}}Ingredients{{/link-to}}<br>
-{{#link-to 'erd'}}Entity-relationship Diagram{{/link-to}}<br>
 
 <hr>
 
 &copy; 2014-2015 Some Guys at LSU<br>
+{{#link-to 'erd'}}Entity-relationship Diagram{{/link-to}} | <a href="http://pantry-pal-api.herokuapp.com/">Api Documentation</a><br>
 <a href="https://github.com/pantry-pal/pantry-pal">Source Code on Github</a><br>
-<a href="http://pantry-pal-api.herokuapp.com/">Api Documentation</a><br>
+{{#link-to 'sql'}}SQL{{/link-to}} | {{#link-to 'xml'}}XML{{/link-to}}<br>
